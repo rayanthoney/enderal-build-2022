@@ -1,21 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 * {
-  margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;  
+  font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
+    margin: 0;
+    font-family: verdana;
+    background: #eee;
 }
 
+/* ***************************** */
+/*    CUSTOM HEADER STYLES       */
+/* ***************************** */
 .wrapper {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  perspective: 10px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
 }
 
 header {
@@ -34,7 +40,7 @@ header::before {
   bottom: 0;
   width: 100%;
   height: 100px;
-  background: linear-gradient(to top, #181a1b, transparent);
+  background: linear-gradient(to top, #0E1112, transparent);
   z-index: 10000;
 }
 
@@ -56,30 +62,29 @@ header::before {
 }
 
 .title {
-  font-size: 7rem;
-  color: goldenrod;
+  font-size: 4rem;
+  color: rgb(245, 158, 11);
   text-shadow: 0 0 5px hsl(0, 0%, 0%);
-  font-family: "Tangerine", cursive;
+  font-family: "Roboto", sans-serif;
 }
+  
 
-/**********************/
-/*     NAVIGATION     */
-/**********************/
 
 
 /* ***************************** */
-/*    CUSTOM HEADER STYLES       */
+/*    CUSTOM STICKY NAV          */
 /* ***************************** */
 
 .main {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  z-index: 99;
+    /* height: -100vh; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    background: #0E1112;
 }
+
 
 #chk1 {
   display: none;
@@ -96,24 +101,24 @@ i {
 }
 
 .nav .logo {
-  flex: 1;
-  color: white;
-  margin-left: 50px;
-  padding: 10px;
-  text-transform: capitalize;
-}
+    flex: 1;
+    color: white;
+    margin-left: 50px;
+    padding: 10px;
+    text-transform: capitalize;
+  }
 
 .nav .search-box {
   flex: 1;
   position: relative;
 }
 
-.search-box input {
+.nav .search-box input {
   width: 100%;
   height: 40px;
   border: none;
   outline: none;
-  background: gainsboro;
+  background: white;
   border-radius: 30px;
   color: gray;
   font-size: 16px;
@@ -122,7 +127,7 @@ i {
   padding-right: 40px;
 }
 
-.search-box button {
+.nav .search-box button {
   cursor: pointer;
   width: 40px;
   height: 40px;
@@ -132,124 +137,114 @@ i {
   top: 0;
   right: 0;
   transform: scale(0.9);
-  background: green;
+  background: rgb(245, 158, 11);
 }
 
 .nav ul {
   flex: 2;
   display: flex;
   justify-content: space-evenly;
+  
 }
 
 .nav ul li {
   list-style: none;
+  /* display: inline-block; */
+  /* padding: 20px; */
 }
 
-.nav ul li  a {
-  padding: 10px;
-}
-
-.nav ul li .nav-link {
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  text-transform: uppercase;
+.nav ul li a {
+  /* color: white;
+  font-weight: 300; */
   padding: 10px 15px;
 }
 
-.nav ul li .nav-link:hover {
-  border-bottom: 2px solid rgb(217, 165, 33);
+.nav ul li .nav-link {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
 }
+
+.nav ul li .nav-link:hover {
+    color: rgb(245, 158, 11);
+    border-bottom: 2px solid rgb(245, 158, 11);
+  }
 
 .nav .menu {
-  font-size: 2.5em;
-  display: none;
-}
+    font-size: 2.5em;
+    display: none;
+  }
 
 @media (max-width: 1000px) {
-  .search-box button {
-    position: absolute;
+    .nav .search-box button {
+      position: absolute;
+    }
+    .nav ul {
+      position: fixed;
+      top: 100px;
+      right: -100%;
+      background: rgb(0, 0, 0, 0.5);
+      height: calc(100vh - 100px);
+      width: 50%;
+      flex-direction: column;
+      align-items: center;
+      transition: right 0.5s linear;
+    }
+    .nav .menu {
+      width: 100px;
+      text-align: center;
+    }
+    #chk1:checked ~ ul {
+      right: 0;
+    }
   }
-  .nav ul {
-    position: fixed;
-    top: 100px;
-    right: -100%;
-    background: rgb(0, 0, 0, 0.5);
-    height: calc(100vh - 100px);
-    width: 50%;
-    flex-direction: column;
-    align-items: center;
-    transition: right 0.5s linear;
+  @media (max-width: 600px) {
+    .nav .logo {
+      font-size: 10px;
+      margin-left: 8px;
+    }
+    .nav ul {
+      width: 100%;
+    }
   }
-  .nav .menu {
-    display: block;
-    width: 100px;
-    text-align: center;
-  }
-  #chk1:checked ~ ul {
-    right: 0;
-  }
-}
-@media (max-width: 600px) {
-  .nav .logo {
-    font-size: 10px;
-    margin-left: 8px;
-  }
-  .nav ul {
-    width: 100%;
-  }
-}
 
 .nav {
-  width: 100%;
-  text-align: center;
-  left: 0;
-  background-color: rgb(24, 26, 27, 0.7);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed; 
-  box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    text-align: center;
+    left: 0;
+    /* background: linear-gradient(to top, #181a1b, transparent); */
+    background: rgba(14, 17, 18, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: fixed;  */
+    box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
 .bottom-nav {
   position: absolute;
-  bottom: 70px;
+  bottom: 0;
 }
 
 .top-nav {
   position: fixed;
-  top: 70px;
+  top: 0;
 }
 
-/* .nav ul li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 20px;
-}
 
-.nav ul li .nav-link {
-  text-decoration: none;
-  color: #ccc;
-  padding: 20px;
-}
 
-.nav ul li .nav-link:hover {
-  border-bottom: 3px solid rgb(217, 165, 33);
-} */
 
-/**********************/
-/*     CONTENT     */
-/**********************/
 
 .container {
   width: 100%;
   padding: 50px;
-  background: #181a1b;
+  background: rgb(14, 17, 18);
   background: linear-gradient(
     0deg,
-    rgba(24, 26, 27, 1) 0%,
-    rgba(24, 26, 27, 1) 100%
+    rgba(14, 17, 18, 1) 0%,
+    rgba(14, 17, 18, 1) 100%
   );
 }
 
@@ -258,7 +253,6 @@ i {
   margin: 50px auto;
   padding: 50px;
   background: #fff;
-  color: black;
   border-radius: 10px;
-  box-shadow: 0 5px 10 px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.1);
 }
