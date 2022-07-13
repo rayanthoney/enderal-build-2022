@@ -66,23 +66,19 @@ header::before {
 /*     NAVIGATION     */
 /**********************/
 
-.main {
-  height: 100vh;
-}
 
 /* ***************************** */
 /*    CUSTOM HEADER STYLES       */
 /* ***************************** */
 
-main {
+.main {
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   z-index: 99;
-  /* box-shadow: 0 0 10px var(--clr-gold); */
-  /* background-color: rgb(24, 26, 27, 0.7); */
 }
 
 #chk1 {
@@ -90,7 +86,7 @@ main {
 }
 
 i {
-  color: var(--clr-white);
+  color: white;
   cursor: pointer;
 }
 
@@ -99,14 +95,15 @@ i {
   font-size: 3.5em;
 }
 
-main .logo {
+.nav .logo {
   flex: 1;
-  color: var(--clr-white);
+  color: white;
   margin-left: 50px;
+  padding: 10px;
   text-transform: capitalize;
 }
 
-main .search-box {
+.nav .search-box {
   flex: 1;
   position: relative;
 }
@@ -116,7 +113,7 @@ main .search-box {
   height: 40px;
   border: none;
   outline: none;
-  background: var(--clr-grey);
+  background: gainsboro;
   border-radius: 30px;
   color: gray;
   font-size: 16px;
@@ -138,7 +135,7 @@ main .search-box {
   background: green;
 }
 
-main ul {
+.nav ul {
   flex: 2;
   display: flex;
   justify-content: space-evenly;
@@ -148,19 +145,23 @@ main ul {
   list-style: none;
 }
 
-main ul li a {
+.nav ul li  a {
+  padding: 10px;
+}
+
+.nav ul li .nav-link {
   text-decoration: none;
-  color: var(--clr-white);
+  color: white;
   font-weight: 600;
   text-transform: uppercase;
   padding: 10px 15px;
 }
 
-main ul li a:hover {
+.nav ul li .nav-link:hover {
   border-bottom: 2px solid rgb(217, 165, 33);
 }
 
-main .menu {
+.nav .menu {
   font-size: 2.5em;
   display: none;
 }
@@ -169,18 +170,18 @@ main .menu {
   .search-box button {
     position: absolute;
   }
-  main ul {
+  .nav ul {
     position: fixed;
     top: 100px;
     right: -100%;
-    /* background: rgb(0, 0, 0, 0.5); */
+    background: rgb(0, 0, 0, 0.5);
     height: calc(100vh - 100px);
     width: 50%;
     flex-direction: column;
     align-items: center;
     transition: right 0.5s linear;
   }
-  main .menu {
+  .nav .menu {
     display: block;
     width: 100px;
     text-align: center;
@@ -190,11 +191,11 @@ main .menu {
   }
 }
 @media (max-width: 600px) {
-  main .logo {
+  .nav .logo {
     font-size: 10px;
     margin-left: 8px;
   }
-  main ul {
+  .nav ul {
     width: 100%;
   }
 }
@@ -207,7 +208,7 @@ main .menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: fixed; 
   box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -243,9 +244,7 @@ main .menu {
 
 .container {
   width: 100%;
-  margin: 0 auto;
   padding: 50px;
-
   background: #181a1b;
   background: linear-gradient(
     0deg,
@@ -255,8 +254,8 @@ main .menu {
 }
 
 .container .box {
-  width: 100%;
-  margin-top: 50px;
+  width: 70%;
+  margin: 50px auto;
   padding: 50px;
   background: #fff;
   color: black;
