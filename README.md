@@ -4,7 +4,7 @@
 
 # 🛠️ My Awesome Project
 
-![alt tag](https://picsum.photos/600/300)
+![alt tag](imgs/enderal-build.png)
 
 <div align="center" >
 <!-- link to project -->
